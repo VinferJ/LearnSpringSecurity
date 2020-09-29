@@ -1,0 +1,31 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    
+    <changeSet id="create@user_info@202009181715" author="Vinfer" labels="v0">
+
+        <createTable tableName="user_info" remarks="用户信息表">
+            <column name="id" type="bigint" autoIncrement="true" remarks="用户id，主键">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user_id" />
+            </column>
+            <column name="username" type="varchar(64)" defaultValue="" remarks="用户名，不可重复">
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="password" type="varchar(128)" defaultValue="" remarks="用户密码">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!--对表类型及注释等配置-->
+        <modifySql dbms="mysql">
+            <append value="ENGINE INNODB "/>
+            <append value="DEFAULT CHARSET=utf8mb4 "/>
+            <append value="COMMENT='用户表'"/>
+        </modifySql>
+
+    </changeSet>
+    
+    
+</databaseChangeLog>

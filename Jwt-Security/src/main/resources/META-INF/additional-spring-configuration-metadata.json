@@ -1,0 +1,50 @@
+{
+  "properties": [
+    {
+      "name": "encrypt.body.aes-key",
+      "type": "java.lang.String",
+      "description": "AES加密的秘钥."
+    },
+    {
+      "name": "encrypt.body.aes-iv",
+      "type": "java.lang.String",
+      "description": " AES加密中的向量."
+    },
+    {
+      "name": "encrypt.body.request-valid-time",
+      "type": "java.lang.Long",
+      "defaultValue": 10,
+      "description": "http请求处理超时时间."
+    },
+    {
+      "name": "security.login-url",
+      "type": "java.lang.String",
+      "defaultValue": "/login",
+      "description": "在Spring security 中绑定的登录请求路径."
+    },
+    {
+      "name": "security.logout-url",
+      "type": "java.lang.String",
+      "defaultValue": "/logout"
+    },
+    {
+      "name": "security.auth-white-list[0]",
+      "type": "java.lang.String",
+      "description": "认证白名单元素."
+    },
+    {
+      "name": "security.auth-white-list[1]",
+      "type": "java.lang.String",
+      "description": "认证白名单元素."
+    },
+    {
+      "name": "security.auth-white-list[2]",
+      "type": "java.lang.String",
+      "description": "认证白名单元素."
+    },
+    {
+      "name": "security.web-ignoring-list[0]",
+      "type": "java.lang.String",
+      "description": "认证无视名单元素."
+    }
+  ] }

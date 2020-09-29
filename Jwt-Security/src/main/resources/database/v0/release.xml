@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <include file="classpath:database/v0/table/user_info.xml" />
+    <include file="classpath:database/v0/table/role_info.xml" />
+    <include file="classpath:database/v0/table/permission_info.xml" />
+    <include file="classpath:database/v0/table/user_role.xml" />
+    <include file="classpath:database/v0/table/role_permission.xml" />
+
+</databaseChangeLog>

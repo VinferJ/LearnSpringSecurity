@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.vinfer.jwtsecurity.dao.PermissionDao">
+
+    <select id="queryPermissionByRoleId" resultType="me.vinfer.jwtsecurity.entity.PermissionDo">
+        select id,permission_name,permission_url from permission_info where id in
+       (select permission_id from role_permission where role_id=#{roleId})
+    </select>
+
+    <update id="updatePermissionById">
+        update permission_info set permission_name=#{permissionName},permission_desc=#{permissionDesc}
+        where id=#{id};
+    </update>
+
+    <insert id="addPermission">
+        insert into permission_info (permission_name,permission_desc)
+        values (#{permissionName},#{permissionDesc});
+    </insert>
+
+</mapper>

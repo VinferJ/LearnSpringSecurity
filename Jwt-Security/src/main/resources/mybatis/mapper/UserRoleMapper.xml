@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.vinfer.jwtsecurity.dao.UserRoleDao">
+
+    <insert id="addUserRole">
+        insert into user_role (user_id,role_id) values
+        <foreach collection="userRoleList" item="userRole" separator=",">
+            (#{userRole.userId},#{userRole.roleId})
+        </foreach>
+    </insert>
+
+    <update id="updateUserRoleById">
+        update user_role set user_id=#{userId},role_id=#{roleId}
+        where id=#{id};
+    </update>
+
+</mapper>

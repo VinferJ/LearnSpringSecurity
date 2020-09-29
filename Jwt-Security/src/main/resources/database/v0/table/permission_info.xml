@@ -1,0 +1,31 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet id="create@permission_info202009221458" author="Vinfer" labels="v0">
+
+        <createTable tableName="permission_info" remarks="权限信息表">
+            <column name="id" type="bigint" autoIncrement="true" remarks="权限id，自增主键">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_permission_id" />
+            </column>
+            <column name="permission_name" type="varchar(32)" remarks="权限名称，不可重复">
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="permission_url" type="varchar(255)" remarks="权限资源访问路径，不可重复">
+                <constraints nullable="false" unique="true" />
+            </column>
+        </createTable>
+
+        <!--对表类型及注释等配置-->
+        <modifySql dbms="mysql">
+            <append value="ENGINE INNODB "/>
+            <append value="DEFAULT CHARSET=utf8mb4 "/>
+            <append value="COMMENT='权限表'"/>
+        </modifySql>
+
+    </changeSet>
+
+</databaseChangeLog>

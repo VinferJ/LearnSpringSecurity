@@ -1,0 +1,14 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet id="modify@permission_info202009231743" author="Vinfer" labels="v1.0">
+        <addColumn tableName="permission_info">
+            <column name="permission_desc" type="varchar(255)" remarks="权限描述" defaultValue="描述为空" />
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

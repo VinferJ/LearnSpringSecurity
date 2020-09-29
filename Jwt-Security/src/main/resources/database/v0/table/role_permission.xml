@@ -1,0 +1,31 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet id="create@role_permission202009221502" author="Vinfer" labels="v0">
+
+        <createTable tableName="role_permission" remarks="角色权限关联表">
+            <column name="id" type="bigint" autoIncrement="true" remarks="表主键">
+                <constraints nullable="false" unique="true" primaryKey="true" primaryKeyName="pk_role_permission_id" />
+            </column>
+            <column name="role_id" type="bigint" remarks="角色id">
+                <constraints nullable="false" foreignKeyName="fk_per_role_id" referencedTableName="role_info" referencedColumnNames="id" />
+            </column>
+            <column name="permission_id" type="bigint" remarks="权限id">
+                <constraints nullable="false" foreignKeyName="fk_permission_id" referencedTableName="permission_info" referencedColumnNames="id" />
+            </column>
+        </createTable>
+
+        <!--对表类型及注释等配置-->
+        <modifySql dbms="mysql">
+            <append value="ENGINE INNODB "/>
+            <append value="DEFAULT CHARSET=utf8mb4 "/>
+            <append value="COMMENT='角色权限关联表'"/>
+        </modifySql>
+
+    </changeSet>
+
+</databaseChangeLog>
